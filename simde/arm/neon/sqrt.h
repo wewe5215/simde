@@ -35,9 +35,9 @@ SIMDE_BEGIN_DECLS_
 
 SIMDE_FUNCTION_ATTRIBUTES
 simde_float16
-simde_vsqrth_f16(simde_float16 a) {
+simde_vsqrth_f16(simde_float16_t a) {
   #if defined(SIMDE_ARM_NEON_A32V8_NATIVE) && defined(SIMDE_ARM_NEON_FP16)
-    return vsqrth_f16(a, b);
+    return vsqrth_f16(a);
   #elif defined(simde_math_sqrtf)
     simde_float32 af = simde_float16_to_float32(a);
     return simde_float16_from_float32(simde_math_sqrtf(af));

@@ -22,7 +22,6 @@
  */
 
 #define SIMDE_TESTS_CURRENT_ISAX sse2
-#include <simde/x86/sse2.h>
 #include <test/x86/test-sse2.h>
 
 #if defined(HEDLEY_MSVC_VERSION)
@@ -6143,6 +6142,12 @@ test_simde_mm_packus_epi16(SIMDE_MUNIT_TEST_ARGS) {
 }
 
 static int
+test_simde_mm_pause(SIMDE_MUNIT_TEST_ARGS) {
+  simde_mm_pause();
+  return 0;
+}
+
+static int
 test_simde_mm_sad_epu8(SIMDE_MUNIT_TEST_ARGS) {
   const struct {
     simde__m128i a;
@@ -10686,6 +10691,8 @@ SIMDE_TEST_FUNC_LIST_BEGIN
   SIMDE_TEST_FUNC_LIST_ENTRY(mm_packs_epi16)
   SIMDE_TEST_FUNC_LIST_ENTRY(mm_packs_epi32)
   SIMDE_TEST_FUNC_LIST_ENTRY(mm_packus_epi16)
+
+  SIMDE_TEST_FUNC_LIST_ENTRY(mm_pause)
 
   SIMDE_TEST_FUNC_LIST_ENTRY(mm_undefined_pd)
   SIMDE_TEST_FUNC_LIST_ENTRY(mm_undefined_si128)
